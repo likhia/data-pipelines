@@ -5,7 +5,7 @@ We will use Astra Streaming topics/functions/sinks, the Pulsar CLI, file data so
 
 The process you will follow for this workshop is as follows:
     
-- Incoming data will come from a file that will be consumed by a Pulsar source (running locally on your laptop or on GitPod).  This will provide experience in using the Pulsar CLI to interact with Astra.
+- Incoming data will come from a file that will be consumed from a CSV file using the Pulsar CLI and published to an Astra Streaming topic.  This will provide experience in using the Pulsar CLI to interact with Astra.
 - We will deploy a function that will enrich the messages, and store them in Astra DB using a sink.
 - CDC will detect changes in the Astra DB table and publish them to a data topic in Astra Streaming.
 - We will deploy a function that filters messages and publishes them to multiple topics based on their content.
@@ -35,7 +35,7 @@ If you do not have an Astra account, create a free trial account at [Astra Regis
 
 
 ### ElasticSearch
-If you do not have an ElastSearch account, create a free trial account and then:
+If you do not have an ElasticSearch account, create a free trial account at [ElasticSearch](https://www.elastic.co/) and then:
 - create a deployment in the uscentral1 GCP region.  <b>Be sure to save the credentials that are provided</b> as you'll need them later.
 - click on your deployment in the menu on the left.
 - Take note of the following items as you'll need them in later steps:
@@ -47,7 +47,7 @@ If you do not have an ElastSearch account, create a free trial account and then:
 
 
 ## Setup
-In this section, we will walk through setup of the tools needed to execute this workshop.  This includes forking the GitHub repository, opening the repo in GitPod, configuring the Pulsar CLI, our Astra DB table, and ElasticSearch.
+In this section, we will walk through setup of the tools needed to execute this workshop.  This includes forking the DataStax GitHub repository for this workshop, opening your fork of the repository in GitPod, configuring the Pulsar CLI, our Astra DB table, and ElasticSearch.
 
 ### Fork the GitHub repository
 1. Login to your GitHub account
@@ -57,14 +57,17 @@ In this section, we will walk through setup of the tools needed to execute this 
     <img width="500" src="assets/fork_button.png">
 4. Select an owner for the forked repository.
 5. By default, the fork will be named the same as the original. You can change the name of the fork if you prefer.
-6. Click Create fork.
+6. Click `Create fork`.
 
 
 ### Open your repository in GitPod
 1. In a browser, navigate to your fork of the GitHub repository that you created above.
 2. In the browser’s address bar, prefix the entire URL with `gitpod.io/#` and press Enter.
     - For example, `gitpod.io/#https://github.com/hiltonrosenfeld/data-pipelines`
-3. Sign in with your GitHub account and let the workspace start up.
+3. Click on the button `Continue with GitHub`.
+4. Authorise GitPod to sign in with your GitHub account.
+5. For Choose an Editor, select `VS Code • 1.x.x • Browser`.
+6. There is no need to install the Extension Pack for Java.
 
 <!--
 ### Pulsar CLI tools
@@ -131,7 +134,7 @@ In this section, we will walk through setup of the tools needed to execute this 
 Your GitPod environment is preconfigured with  a number of Terminal sessions.
 Each of this will be used for concurrently running multiple Pulsar CLI commands.
 
-<img width="226" src="assets/gitpod_terminals.png">
+<img width="248" src="assets/gitpod_terminals.png">
 
 1. Create a **Consumer**
     1. Select the Terminal named `2_Consumer_stocks-in`
@@ -204,10 +207,7 @@ Now that you have a topic that you can publish to, create a Pulsar file source c
         ```
 
 6. Check the results
-    1. Select the Terminal named `1_File_Connector`
-    
-        You should see the log for the file source display processing statements
-    2. Select the Terminal named `2_Consumer_stock-in`
+    1. Select the Terminal named `2_Consumer_stock-in`
     
         You should see new messages output by the consumer.  There will be a message for each line in the file.
 
@@ -263,13 +263,10 @@ Next we will add a function to the stream.  This function will consume messages 
         cp stock-prices-10.csv /tmp/stocks
         ```
 6. Check the results
-    1. Select the Terminal named `1_File_Connector`
-    
-        You should see the log for the file source display processing statements.
-    2. Select the Terminal named `2_Consumer_stock-in`
+    1. Select the Terminal named `2_Consumer_stock-in`
 
         You should see new messages.  There will be a message for each line in the file.
-    3. Select the Terminal named `3_Consumer_stock-enriched`
+    2. Select the Terminal named `3_Consumer_stock-enriched`
     
         You should see messages we just created.  They should be in JSON format.
 
