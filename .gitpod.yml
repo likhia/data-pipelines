@@ -17,6 +17,8 @@ tasks:
       cd lunastreaming-2.10.4.0/connectors
       wget -O pulsar-io-file-2.10.3.nar "https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename=pulsar/pulsar-2.10.3/connectors/pulsar-io-file-2.10.3.nar"
       cd /workspace/data-pipelines
+      chmod 750 mvnw
+        
       clear
     command: |
       source /home/gitpod/.astra/cli/astra-init.sh
@@ -30,6 +32,7 @@ tasks:
     command: |
       unset JAVA_TOOL_OPTIONS
       source /home/gitpod/.astra/cli/astra-init.sh
+      cd /workspace/data-pipelines/tools/lunastreaming-2.10.4.0/bin
       clear
       echo "***************"
       echo "** File Connector ***"
@@ -39,6 +42,7 @@ tasks:
     command: |
       unset JAVA_TOOL_OPTIONS
       source /home/gitpod/.astra/cli/astra-init.sh
+      cd /workspace/data-pipelines/tools/lunastreaming-2.10.4.0/bin
       clear
       echo "***************"
       echo "** Client Stocks In ***"
@@ -48,6 +52,7 @@ tasks:
     command: |
       unset JAVA_TOOL_OPTIONS
       source /home/gitpod/.astra/cli/astra-init.sh
+      cd /workspace/data-pipelines/tools/lunastreaming-2.10.4.0/bin
       clear
       echo "***************"
       echo "** Client Stocks Enriched ***"
@@ -57,6 +62,7 @@ tasks:
     command: |
       unset JAVA_TOOL_OPTIONS
       source /home/gitpod/.astra/cli/astra-init.sh
+      cd /workspace/data-pipelines/tools/lunastreaming-2.10.4.0/bin
       clear
       echo "***************"
       echo "** Client CDC Data ***"
@@ -66,6 +72,7 @@ tasks:
     command: |
       unset JAVA_TOOL_OPTIONS
       source /home/gitpod/.astra/cli/astra-init.sh
+      cd /workspace/data-pipelines/tools/lunastreaming-2.10.4.0/bin
       clear
       echo "***************"
       echo "** Client Stocks AAPL ***"
