@@ -128,9 +128,9 @@ In this section, we will walk through setup of the tools needed to execute this 
         3. Save the file
 
 
-## 3. Creating the Pulsar Stream
+## 3. Creating the Data Pipeline
 
-### 3.1 Pulsar from the Command Line
+### 3.1 Astra Streaming from the Command Line
 
 Your GitPod environment is preconfigured with  a number of Terminal sessions.
 Each of this will be used for concurrently running multiple Pulsar CLI commands.
