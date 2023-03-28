@@ -50,23 +50,34 @@ If you do not have an ElasticSearch account, create a free trial account at [Ela
 In this section, we will walk through setup of the tools needed to execute this workshop.  This includes forking the DataStax GitHub repository for this workshop, opening your fork of the repository in GitPod, configuring the Pulsar CLI, our Astra DB table, and ElasticSearch.
 
 ### 2.1 Fork the GitHub repository
+
 1. Login to your GitHub account
+
 2. Navigate to the GitHub repository for this workshop
     - `https://github.com/in-realtime/data-pipelines`
+
 3. In the top-right corner of the page, click **Fork**.
     <img width="500" src="assets/fork_button.png">
+
 4. Select an owner for the forked repository.
+
 5. By default, the fork will be named the same as the original. You can change the name of the fork if you prefer.
+
 6. Click `Create fork`.
 
 
 ### 2.2 Open your repository in GitPod
+
 1. In a browser, navigate to your fork of the GitHub repository that you created above.
+
 2. In the browser’s address bar, prefix the entire URL with `gitpod.io/#` and press Enter.
     - For example, `gitpod.io/#https://github.com/hiltonrosenfeld/data-pipelines`
 3. Click on the button `Continue with GitHub`.
+
 4. Authorise GitPod to sign in with your GitHub account.
+
 5. For Choose an Editor, select `VS Code • 1.x.x • Browser`.
+
 6. There is no need to install the Extension Pack for Java.
 
 <!--
@@ -143,6 +154,7 @@ Each of this will be used for concurrently running multiple Pulsar CLI commands.
         ```sh
         ./pulsar-client consume -s test -n 0 <TENANT>/stocks/stocks-in
         ```
+
 2. Create a **Producer**
     1. Select the Terminal named `1_File_Connector`
     2. Create the producer using the following command.
@@ -164,7 +176,7 @@ Now that you have a topic that you can publish to, create a Pulsar file source c
     - \<TOKEN\>: **authParams**.
     - \<BROKER SERVICE URL\>: **brokerServiceUrl**.
 
-2. Edit the following code snippet, replacing each of these:
+2. Edit the following code snippet, replacing each of:
     - \<BROKER SERVICE URL>
     - \<TOKEN>
     - \<TENANT>
@@ -179,11 +191,11 @@ Now that you have a topic that you can publish to, create a Pulsar file source c
         --source-config-file /workspace/data-pipelines/stock-price-file-connector.yaml
     ```
 
-4. Start the File Connector
+3. Start the File Connector
     1. Select the Terminal named `1_File_Connector`
     2. execute the edited code snippet.
-
-5. Trigger a file read
+    
+4. Trigger a file read
     1. Select the Terminal named `0_General`
     2. Stop the previous producer task using `Ctrl-C`
     2. Place Data File
@@ -192,7 +204,7 @@ Now that you have a topic that you can publish to, create a Pulsar file source c
         cp stock-prices-10.csv /tmp/stocks
         ```
 
-6. Check the results
+5. Check the results
     1. Select the Terminal named `2_Consumer_stock-in`
     
         You should see new messages output by the consumer.  There will be a message for each line in the file.
