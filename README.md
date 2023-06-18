@@ -178,35 +178,32 @@ Now that you have a topic that you can publish to, create a Pulsar file source c
     - \<TOKEN\>: **authParams**.
     - \<BROKER SERVICE URL\>: **brokerServiceUrl**.
 
-2. Edit the following code snippet, replacing each of:
-    - \<BROKER SERVICE URL>
-    - \<TOKEN>
-    - \<TENANT>
+2. In the `1_File_Connector` terminal,  set the following environment variables.
+    - export BROKER_SERVICE_URL=**brokerServiceUrl in client.conf**.
+    - export TOKEN=**authParams in client.conf**.
+    - export TENANT=**Tenant used for the workshop**
+       
+4. Copy the following code snippet and paste into the `1_File_Connector` terminal.
     ```
     ./pulsar-admin sources localrun \
-        --broker-service-url <BROKER SERVICE URL> \
+        --broker-service-url $BROKER_SERVICE_URL \
         --client-auth-plugin org.apache.pulsar.client.impl.auth.AuthenticationToken \
-        --client-auth-params "<TOKEN>" \
+        --client-auth-params "$TOKEN" \
         --archive /workspace/data-pipelines/tools/lunastreaming-2.10.4.0/connectors/pulsar-io-file-2.10.3.nar \
         --name stocks-file-source \
-        --destination-topic-name <TENANT>/stocks/stocks-in \
+        --destination-topic-name $TENANT/stocks/stocks-in \
         --source-config-file /workspace/data-pipelines/stock-price-file-connector.yaml
     ```
-
-3. Start the File Connector
-    1. Select the Terminal named `1_File_Connector`
-    2. execute the edited code snippet.
-    
-4. Trigger a file read
+ 
+5. Trigger a file read
     1. Select the Terminal named `0_General`
-    2. Stop the previous producer task using `Ctrl-C`
     2. Place Data File
         ```sh
         mkdir /tmp/stocks
         cp stock-prices-10.csv /tmp/stocks
         ```
 
-5. Check the results
+6. Check the results
     1. Select the Terminal named `2_Consumer_stock-in`
     
         You should see new messages output by the consumer.  There will be a message for each line in the file.
