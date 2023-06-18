@@ -150,14 +150,16 @@ Each of this will be used for concurrently running multiple Pulsar CLI commands.
 
 1. Create a **Consumer**
     1. Select the Terminal named `2_Consumer_stocks-in`
-    2. Create the consumer using the following command. The `-s` option specifies your subscription name and the `-n 0` option tells the client to consume messages continuously.
+    2. Type cd tools/lunastreaming-2.10.4.0/bin
+    3. Create the consumer using the following command. The `-s` option specifies your subscription name and the `-n 0` option tells the client to consume messages continuously.
         ```sh
         ./pulsar-client consume -s test -n 0 <TENANT>/stocks/stocks-in
         ```
 
 2. Create a **Producer**
     1. Select the Terminal named `1_File_Connector`
-    2. Create the producer using the following command.
+    2. Type cd tools/lunastreaming-2.10.4.0/bin
+    3. Create the producer using the following command.
     ```sh
         ./pulsar-client produce -m hello <TENANT>/stocks/stocks-in
     ```
