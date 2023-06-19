@@ -489,7 +489,7 @@ The ElasticSearch sink is a built in connector for Astra Streaming.  From the se
             - Input Topics: `stocks-aapl`
         - Sink-Specific Configuration
             - Elastic Search URL: `<Elastic Endpoint URL>`
-            - Index Name: `appl-index`
+            - Index Name: `aapl-index`
             - Username: `<Elastic Username>`
                 - It is '**elastic**' by default
             - Password: `<Elastic Password>`  
@@ -522,7 +522,7 @@ The ElasticSearch sink is a built in connector for Astra Streaming.  From the se
     2. Open your Elasticsearch Service Deployment
     3. Click on *Enterprise Search*.  
     4. Click *Indices* in the menu.
-    5. Open the index called `appl-index`.
+    5. Open the index called `aapl-index`.
     5. Click on the *Documents* tab.
     
     You will see records that were sent through the AAPL topic by the routing function created in the previous step.
