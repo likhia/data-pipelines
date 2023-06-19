@@ -494,7 +494,7 @@ The ElasticSearch sink is a built in connector for Astra Streaming.  From the se
                 - It is '*elastic*' by default
             - Password: `<Elastic Password>`  
                 - You can skip the token and API key fields
-                - If you forgot to save the password when creating the free trial account, please navigate to Manage Deployments -> <Your deployment name> -> Security and click *Reset Password*.
+                - If you forgot to save the password when creating the free trial account, please navigate to Manage Deployments -> <Your deployment name> -> Security and click *Reset Password* and save the new password. 
                   
                   <img width="800" src="assets/elastic_search_security.png">
                   
