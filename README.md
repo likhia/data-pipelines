@@ -287,7 +287,8 @@ The messages that are created by consuming the stock file and then enriched by t
     2. Click on *Application Token* link.
     3. Click the *Generate Token* button.
     4. Select the role as "*Database Administrator*".  Click on *Generate Token*. 
-    5. Download the csv file. 
+    5. Download the csv file.
+       
        <img width="600" src="assets/token_gen.png">
 
 4. Create the `stocks` Table
