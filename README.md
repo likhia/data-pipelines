@@ -283,9 +283,12 @@ The messages that are created by consuming the stock file and then enriched by t
     <img width="350" src="assets/create_database.png">
 
 3. Generate a Token
-    1. Click the *Generate Token* button.
-    2. Click on *Download Token Details*.
-    3. Open the downloaded file `irt-token.json` and verify that you can read the file.
+    1. Select APIs as the method and click on REST API.
+    2. Click on *Application Token* link.
+    3. Click the *Generate Token* button.
+    4. Select the role as "*Database Administrator*".  Click on *Generate Token*. 
+    5. Download the csv file. 
+       <img width="600" src="assets/token_gen.png">
 
 4. Create the `stocks` Table
     1. Navigate to the `CQL Console` tab
