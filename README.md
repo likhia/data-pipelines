@@ -325,14 +325,16 @@ The messages that are created by consuming the stock file and then enriched by t
     
         <img width="800" src="assets/create_sink.png">
 
-6. Trigger a file read
+6. Wait for the status to become "*running*".
+   
+7. Trigger a file read
     1. Select the Terminal named `0_General`
     2. Place Data File
         ```sh
         cp stock-prices-10.csv /tmp/stocks
         ```
 
-7. Validate the data flow into the `stocks` table
+8. Validate the data flow into the `stocks` table
     1. Navigate to *Databases* in the Menu.
     2. Open the `irt` Database.
     3. Navigate to the `CQL Console` tab
@@ -358,7 +360,9 @@ Now that we have a table holding enriched stock data, let's enable CDC and look 
     
     <img width="350" src="assets/enable_cdc.png">
 
-2. Get the CDC Data topic name
+2. Wait for the status to become "*running*".
+   
+3. Get the CDC Data topic name
     1. Navigate to *Streaming* in the Menu.
     2. Open the your Streaming tenant.
     3. Navigate to the `Namespaces and Topics` tab.
@@ -367,14 +371,14 @@ Now that we have a table holding enriched stock data, let's enable CDC and look 
         - You should see a data topic and a log topic.
     5. Copy the name of the data topic for the next step.    
 
-3. Create a **consumer** for the CDC Data topic
+4. Create a **consumer** for the CDC Data topic
     1. Select the Terminal named `4_Consumer_CDC-Data`
     2. Create the consumer using the following command:
         ```sh
         cd /workspace/data-pipelines/tools/lunastreaming-2.10.4.0/bin
         ./pulsar-client consume -s test -n 0 <TENANT>/astracdc/data-xxxxxxxxxxxxxxxxx.stocks
         ```
-4. Trigger a file read
+5. Trigger a file read
     1. Select the Terminal named `0_General`
     2. Place Data File
         ```sh
